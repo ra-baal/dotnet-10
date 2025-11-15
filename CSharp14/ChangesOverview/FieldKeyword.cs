@@ -1,4 +1,4 @@
-﻿namespace DotNet10.CSharp14;
+﻿namespace CSharp14.ChangesOverview;
 
 internal class Notification0
 {
