@@ -7,14 +7,14 @@ Console.WriteLine("Nowości w C# 14\n");
 
 // #2 Extension members
 // Rozszerzajace elementy czlonkowskie
-//ExtensionMembers.Demo();
+ExtensionMembers.Demo();
 
 // #3 Implicit span conversions
 // Niejawne konwersje span
 
 // #4 Unbound generic types and nameof
 // Nieskonkretyzowane typy generyczne i nameof
-//UnboundGenericTypesAndNameof.Demo();
+UnboundGenericTypesAndNameof.Demo();
 
 // #5 Simple lambda parameters with modifiers
 // Proste parametry lambda z modyfikatorami

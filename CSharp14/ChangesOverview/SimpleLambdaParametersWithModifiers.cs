@@ -17,7 +17,10 @@ internal static class SimpleLambdaParametersWithModifiers
 
         Parse<int> parse = (text) => Int32.Parse(text); // Nie ma żadnego problemu, bez zmiany.
 
-        TryParse<int> tryParse1 = (string text, out int result) => Int32.TryParse(text, out result); // C# 13
-        TryParse<int> tryParse2 = (text, out result) => Int32.TryParse(text, out result); // C# 14 - nie trzeba powtarzac typu.
+        // C# 13
+        TryParse<int> tryParse1 = (string text, out int result) => Int32.TryParse(text, out result);
+
+        // C# 14 - nie trzeba powtarzac typu
+        TryParse<int> tryParse2 = (text, out result) => Int32.TryParse(text, out result); 
     }
 }

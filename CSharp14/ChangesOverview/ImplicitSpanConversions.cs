@@ -56,7 +56,7 @@ internal static class ImplicitSpanConversion5
 {  
     internal static void Example() // string -> ReadOnlySpan<char>
     {
-        const string text = "hello";
+        string text = "hello";
         text.AsSpan().DoSth(); // C# 13
         text.DoSth(); // C# 14 – niejawna konwersja string do ReadOnlySpan<char>
     }

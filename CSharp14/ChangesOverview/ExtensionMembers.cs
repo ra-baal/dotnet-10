@@ -49,10 +49,10 @@ internal static class EnumerableExtensions
         Console.WriteLine("");
     }
 
-    // Extension block
-    extension<TSource>(IEnumerable<TSource> source) // extension members for IEnumerable<TSource>
+    // blok extension dla instancji
+    extension<TSource>(IEnumerable<TSource> source) // elementy rozszerzajace dla instancji
     {
-        // Extension property:
+        // Extension property
         internal bool IsEmpty => !source.Any();
 
         // Extension method:
@@ -62,14 +62,14 @@ internal static class EnumerableExtensions
         }
     }
 
-    // extension block, with a receiver type only
-    extension<TSource>(IEnumerable<TSource>) // static extension members for IEnumerable<Source>
+    // blok extension dla typu
+    extension<TSource>(IEnumerable<TSource>) // statyczne elementy rozszerzajace dla typu
     {
-        // static extension method:
+        // static extension method
         internal static IEnumerable<TSource> Combine(IEnumerable<TSource> first, IEnumerable<TSource> second)
         {
-            if (first == null) throw new ArgumentNullException(nameof(first));
-            if (second == null) throw new ArgumentNullException(nameof(second));
+            ArgumentNullException.ThrowIfNull(first);
+            ArgumentNullException.ThrowIfNull(second);
 
             foreach (var item in first)
                 yield return item;
@@ -78,10 +78,12 @@ internal static class EnumerableExtensions
                 yield return item;
         }
 
-        // static extension property:
-        internal static IEnumerable<TSource> Identity => System.Linq.Enumerable.Empty<TSource>();
+        // static extension property
+        internal static IEnumerable<TSource> Identity =>
+            Enumerable.Empty<TSource>();
 
-        // static user defined operator:
-        public static IEnumerable<TSource> operator +(IEnumerable<TSource> left, IEnumerable<TSource> right) => left.Concat(right);
+        // static user defined operator
+        public static IEnumerable<TSource> operator +(IEnumerable<TSource> left, IEnumerable<TSource> right) =>
+            left.Concat(right);
     }
 }
